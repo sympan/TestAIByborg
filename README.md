@@ -33,12 +33,11 @@ The repository contains a Dockerfile to build the appropriate docker Image ( ful
 
 How to START: clone the reporitory
 
-Summarized workflow using the makefile:
-Build the image
-Run the container (after stopping existing)
-Select and configure in the features a LIVE expert, if we want to pass all the tests.
-Execute the desired targets
-Launch the report or the test results locally using
+1. Build the image
+2. Run the container (after stopping existing)
+3. Select and configure a LIVE expert in the features (if you want to pass all the tests)
+4. Execute the desired targets
+5. Launch the report or the test results locally
 
 ```shell
 allure serve allure-results
