@@ -2,26 +2,29 @@
 
 Recruitment Assignment
 
-This project is a skills assessement in test automation.
-CodeceptJS and BDD are used to perform tests on 3 different quiz questions regarding the Oranum.com website which is based on a white-labled online platform.
+This project is a skills assessment in test automation.
+CodeceptJS and BDD are used to perform tests on 3 different quiz questions regarding the Oranum.com website, which is based on a white-labeled online platform.
 
-In order to execute the test code available in this repository it is required from the users to satisfy some specific environment setup.
-We will use for this assignment Windows setup but can defnitely apply also to Linux users.
-More specifically validate that you have installed:
-Docker Desktop
-Java
-Allure --download, unzip in C:/ then add it into the environment path variable PATH
-Like this the user can run allure serve <folder> to launch a service to display the test results
-WSL2 --If you are a Windows user.
-GIT if you don't use IDE of VSCode
-VSCode or other editor/IDE for easier code review and pull requests from github.
+In order to execute the test code available in this repository, it is required for users to satisfy some specific environment setup. We will use a Windows setup for this assignment, but it can definitely apply to Linux users as well.
 
-Validate all the above works:
-Open a commandline prompt:
+Please ensure that you have installed the following:
+
+- Docker Desktop
+- Java
+- Allure: Download and unzip it in C:/, then add it to the environment PATH variable. This allows running `allure serve <folder>` to launch a service for displaying the test results.
+- WSL2 (If you are a Windows user)
+- Git (if you don't use an IDE like VSCode)
+- VSCode or another editor/IDE for easier code review and pull requests from GitHub.
+
+To validate that all of the above is installed and working correctly, open a command prompt and run the following commands:
+
+```shell
+java --version
 docker --version
 allure --help
-wsl => launches a linux based terminal
+wsl # Launches a Linux-based terminal
 git --version
+```
 
 If all the above are installed and working then we can proceed with assesing the deliverable.
 
@@ -39,10 +42,12 @@ Export the report or the test results locally automatically after mounting the f
 
 Workflow using the make file
 Use the following commands:
+```shell
 make => to build the image
 make test-allure-report => Run all tests with allure report and export the results in the local repo.
 make test-workers => run the app with 2 workers for faster execution
 make test-allure-stepByStepReport => to generate a stepByStepReport and export it in the output folder of the local repo.
+```
 
 All the tests are executed in the Docker container.
 Upon completion the results are copied in the local folders (allure-results && output)
@@ -53,12 +58,17 @@ This is why we installed allure locally on our machine.
 Now that we have mounted the folders from the container where the results are generated,
 we copy the results from the container to the local repo.
 
-However the user can type `make help` to see all the available targets I have provided to run these tests.
-
-Note: It is important to choose an active expert (one that is LIVE)
+Note: It is important to choose an active expert (one that is LIVE) to pass all the tests.
 Please find one and replace the name of the existing expert in the feature files.
 Example: Given I check that the "PsychicRider" is LIVE
 Action: update the name included in the quotes "PsychicRider"
 
+In case the selected expert is not LIVE relative error messages with be thrown and the tests for quiz3 will fail.
+
 This assignment was a great experience for me and I learned much about Docker and codeceptJS.
 After all it was also fun and It's the main reason I wanted to participate.
+
+Many parts of the code can be improved using alongside more global parameters in the config.js file.
+Additionally we can enhance the make file with more useful commands to run tests individually.
+The allure reporting could also be improved to add more tags and provide a more meaningful report that wasn't the target of this assignment.
+In the future we can add proper configuration to support the Test Suite of the product with proper reporting information.
