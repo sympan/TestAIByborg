@@ -58,12 +58,17 @@ This is why we installed allure locally on our machine.
 Now that we have mounted the folders from the container where the results are generated,
 we copy the results from the container to the local repo.
 
-However the user can type `make help` to see all the available targets I have provided to run these tests.
-
-Note: It is important to choose an active expert (one that is LIVE)
+Note: It is important to choose an active expert (one that is LIVE) to pass all the tests.
 Please find one and replace the name of the existing expert in the feature files.
 Example: Given I check that the "PsychicRider" is LIVE
 Action: update the name included in the quotes "PsychicRider"
 
+In case the selected expert is not LIVE relative error messages with be thrown and the tests for quiz3 will fail.
+
 This assignment was a great experience for me and I learned much about Docker and codeceptJS.
 After all it was also fun and It's the main reason I wanted to participate.
+
+Many parts of the code can be improved using alongside more global parameters in the config.js file.
+Additionally we can enhance the make file with more useful commands to run tests individually.
+The allure reporting could also be improved to add more tags and provide a more meaningful report that wasn't the target of this assignment.
+In the future we can add proper configuration to support the Test Suite of the product with proper reporting information.
