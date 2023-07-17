@@ -41,10 +41,12 @@ Export the report or the test results locally automatically after mounting the f
 
 Workflow using the make file
 Use the following commands:
+```shell
 make => to build the image
 make test-allure-report => Run all tests with allure report and export the results in the local repo.
 make test-workers => run the app with 2 workers for faster execution
 make test-allure-stepByStepReport => to generate a stepByStepReport and export it in the output folder of the local repo.
+```
 
 All the tests are executed in the Docker container.
 Upon completion the results are copied in the local folders (allure-results && output)
