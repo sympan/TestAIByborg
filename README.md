@@ -61,7 +61,7 @@ make test-workers => run the app with 2 workers for faster execution
 make test-allure-stepByStepReport => to generate a stepByStepReport and export it in the output folder of the local repo.
 make run-single-test
 ```
-If we want to run another single test using the ```shell make run-single-test```
+If we want to run another single test using the ```make run-single-test```
 simple copy from the features file the scenario you want and the update the make file command:
 ```shell
 docker run -it --rm --ipc=host -v $(PWD)/output:/app/output -v $(PWD)/allure-results:/app/allure-results testaibyborg sh -c "npx codeceptjs run --grep \"<scenario>\""
