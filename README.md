@@ -19,6 +19,7 @@ Please ensure that you have installed the following:
 To validate that all of the above is installed and working correctly, open a command prompt and run the following commands:
 
 ```shell
+java --version
 docker --version
 allure --help
 wsl # Launches a Linux-based terminal
