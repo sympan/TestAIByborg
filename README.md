@@ -31,22 +31,44 @@ If all the above are installed and working then we can proceed with assesing the
 NOTE:
 The repository contains a Dockerfile to build the appropriate docker Image ( fully prepare the docker image) and a makefile will be used to manage this test project, once a user clones this repository.
 
-START: clone the reporitory
+How to START: clone the reporitory
 
-Summarized workflow:
+Summarized workflow using the makefile:
 Build the image
 Run the container (after stopping existing)
-Execute the tests
-Generate a static allure report or allure results in the DockerImage
-Export the report or the test results locally automatically after mounting the folders respectively
+Select and configure in the features a LIVE expert, if we want to pass all the tests.
+Execute the desired targets
+Launch the report or the test results locally using
+
+```shell
+allure serve allure-results
+```
+
+Or open the .html file in the ./outputs folder
+
+Note: It is important to choose an active expert (one that is LIVE) to pass all the tests.
+Please find one and replace the name of the existing expert in the feature files.
+Example: Given I check that the "PsychicRider" is LIVE
+Action: update the name included in the quotes "PsychicRider"
+
+In case the selected expert is not LIVE relative error messages with be thrown and the tests for quiz3 will fail.
 
 Workflow using the make file
 Use the following commands:
+
 ```shell
 make => to build the image
 make test-allure-report => Run all tests with allure report and export the results in the local repo.
 make test-workers => run the app with 2 workers for faster execution
 make test-allure-stepByStepReport => to generate a stepByStepReport and export it in the output folder of the local repo.
+make run-single-test
+```
+
+If we want to run another single test using the `make run-single-test`
+simple copy from the features file the scenario you want and the update the make file command:
+
+```shell
+docker run -it --rm --ipc=host -v $(PWD)/output:/app/output -v $(PWD)/allure-results:/app/allure-results testaibyborg sh -c "npx codeceptjs run --grep \"<scenario>\""
 ```
 
 All the tests are executed in the Docker container.
@@ -56,14 +78,7 @@ Now we can launch Allure in our local machine to see the test results
 We can't run allure in the container or the wsl because they are not configured to support engines to launch graphs and windows.
 This is why we installed allure locally on our machine.
 Now that we have mounted the folders from the container where the results are generated,
-we copy the results from the container to the local repo.
-
-Note: It is important to choose an active expert (one that is LIVE) to pass all the tests.
-Please find one and replace the name of the existing expert in the feature files.
-Example: Given I check that the "PsychicRider" is LIVE
-Action: update the name included in the quotes "PsychicRider"
-
-In case the selected expert is not LIVE relative error messages with be thrown and the tests for quiz3 will fail.
+we copy the results from the container to the local repo automatically.
 
 This assignment was a great experience for me and I learned much about Docker and codeceptJS.
 After all it was also fun and It's the main reason I wanted to participate.
