@@ -1,0 +1,21 @@
+{
+  "name": "byborg-ip",
+  "version": "1.0.0",
+  "description": "Recruitment Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sotirios Topi",
+  "license": "ISC",
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "@playwright/test": "^1.36.0",
+    "allure-codeceptjs": "^2.4.0",
+    "allure-commandline": "^2.23.0",
+    "codeceptjs": "^3.5.2",
+    "playwright": "^1.36.0",
+    "playwright-core": "1.18"
+  }
+}
